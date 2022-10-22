@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, StatusBar, Text, View} from 'react-native';
+import {Button, StatusBar, Text, View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -13,8 +13,8 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <StatusBar animated={true} backgroundColor="#61dafb" hidden={false} />
+    <SafeAreaProvider style={styles.container}>
+      <StatusBar animated={true} backgroundColor="#61dafb" hidden={true} />
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Home" component={HomeStackScreen} />
@@ -25,3 +25,23 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+    marginHorizontal: 16,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+  },
+});

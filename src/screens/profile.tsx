@@ -7,8 +7,17 @@ const ProfileStack = createNativeStackNavigator();
 
 export function ProfileStackScreen() {
   return (
-    <ProfileStack.Navigator>
-      <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+    <ProfileStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <ProfileStack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerTitle: props => <Text>You can have any component here</Text>,
+        }}
+      />
       <ProfileStack.Screen name="Details" component={DetailsScreen} />
     </ProfileStack.Navigator>
   );
