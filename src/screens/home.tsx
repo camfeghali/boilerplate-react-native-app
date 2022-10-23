@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 import {DetailsScreen} from './details';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ function HomeScreen({navigation}) {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Home screen</Text>
+      <Icon name="logout" />
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
