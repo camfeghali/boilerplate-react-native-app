@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#fffff',
-    padding: 4,
-    marginVertical: 2,
+    // paddingHorizontal: 4,
+    marginVertical: 10,
     borderRadius: 2,
   },
   header: {
@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
   },
   date: {
     flex: 1,
-    fontSize: 14,
+    fontSize: 12,
+    fontWeight: 'bold',
     color: '#d1410c',
   },
   title: {
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   tinyLogo: {
-    width: 75,
-    height: 75,
+    width: 90,
+    height: 90,
   },
 });

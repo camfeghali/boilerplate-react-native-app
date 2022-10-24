@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
+import {BlurView} from 'expo-blur';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -14,6 +15,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {HomeStackScreen} from './src/screens/home';
 import {ProfileStackScreen} from './src/screens/profile';
 import {SettingsStackScreen} from './src/screens/settings';
+import {SearchBar} from './src/components/searchbar';
 
 const Tab = createBottomTabNavigator();
 

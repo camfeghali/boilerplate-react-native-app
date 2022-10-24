@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, Button} from 'react-native';
 import {DetailsScreen} from './details';
 import List from '../components/list';
+import {SearchBar} from '../components/searchbar';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -54,6 +55,9 @@ function HomeScreen({navigation}) {
         flex: 1,
         backgroundColor: '#fff',
       }}>
+      <View>
+        <SearchBar></SearchBar>
+      </View>
       <List></List>
     </View>
   );
