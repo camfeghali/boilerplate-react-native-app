@@ -11,7 +11,7 @@ export function SettingsStackScreen() {
       screenOptions={{
         headerShown: false,
       }}>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+      <SettingsStack.Screen name="SettingsSpecial" component={SettingsScreen} />
       <SettingsStack.Screen name="Details" component={DetailsScreen} />
     </SettingsStack.Navigator>
   );

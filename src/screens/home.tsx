@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 import {DetailsScreen} from './details';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import List from '../components/list';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -13,33 +13,48 @@ export function HomeStackScreen() {
         headerShown: false,
       }}>
       <HomeStack.Screen
-        name="Home"
+        name="Home Special"
         component={HomeScreen}
         options={{
-          title: 'My home',
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
+          headerShown: false,
           headerTitleStyle: {
             fontWeight: 'bold',
           },
         }}
       />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
+      <HomeStack.Screen
+        options={{
+          headerShown: true,
+        }}
+        name="FoodScreen"
+        component={FoodScreen}
+      />
     </HomeStack.Navigator>
+  );
+}
+
+function FoodScreen({route, navigation}) {
+  console.log(navigation);
+  let {title} = route.params;
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+      }}>
+      <Text> {title}</Text>
+    </View>
   );
 }
 
 function HomeScreen({navigation}) {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home screen</Text>
-      <Icon name="logout" />
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+      }}>
+      <List></List>
     </View>
   );
 }

@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {Button, StatusBar, Text, View, StyleSheet} from 'react-native';
+import {
+  Button,
+  StatusBar,
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -15,34 +22,43 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <StatusBar animated={true} backgroundColor="#61dafb" hidden={true} />
+      <StatusBar animated={true} backgroundColor="#61dafb" hidden={false} />
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({route}) => ({
-            tabBarIcon: ({focused, color, size}) => {
-              let iconName;
-
-              if (route.name === 'Home') {
-                iconName = 'home-outline';
-              } else if (route.name === 'Settings') {
-                iconName = 'settings-outline';
-              } else {
-                iconName = 'person-outline';
-              }
-
-              return <Icon name={iconName} />;
-            },
-            tabBarActiveTintColor: 'purple',
-            tabBarInactiveTintColor: 'gray',
-          })}>
-          <Tab.Screen name="Home" component={HomeStackScreen} />
-          <Tab.Screen name="Settings" component={SettingsStackScreen} />
+        <Tab.Navigator screenOptions={screenOptions}>
+          <Tab.Screen
+            name="Home"
+            component={HomeStackScreen}
+            options={{
+              headerTitleAlign: 'left',
+              headerTitle: props => <Text style={styles.header}>Camille</Text>,
+            }}
+          />
           <Tab.Screen name="Profile" component={ProfileStackScreen} />
+          <Tab.Screen name="Settings" component={SettingsStackScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
 }
+
+const screenOptions = ({route}) => ({
+  tabBarActiveTintColor: 'purple',
+  tabBarInactiveTintColor: 'gray',
+
+  tabBarIcon: ({focused, color, size}) => {
+    let iconName;
+
+    if (route.name === 'Home') {
+      iconName = 'home-outline';
+    } else if (route.name === 'Settings') {
+      iconName = 'settings-outline';
+    } else {
+      iconName = 'person-outline';
+    }
+
+    return <Icon name={iconName} size={22} />;
+  },
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -56,8 +72,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   header: {
-    fontSize: 32,
+    fontSize: 22,
     backgroundColor: '#fff',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
   title: {
     fontSize: 24,

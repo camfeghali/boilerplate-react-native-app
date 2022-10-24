@@ -9,10 +9,10 @@ export function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
       }}>
       <ProfileStack.Screen
-        name="Profile"
+        name="ProfileSpecial"
         component={ProfileScreen}
         options={{
           headerTitle: props => <Text>You can have any component here</Text>,
