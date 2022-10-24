@@ -29,29 +29,37 @@ const Item = ({title}) => {
 
   return (
     <TouchableOpacity
+      style={styles.item}
       onPress={() => {
         navigation.navigate('FoodScreen', {
           title,
         });
       }}>
-      <View style={styles.item}>
-        <View>
-          <Image
-            style={styles.tinyLogo}
-            source={{
-              uri: 'https://www.pact-zollverein.de/files/styles/1340w__3by2/public/redaktion/_DSC6027Jefta%20van%20Dinther_%C2%A9%20Urban%20J%C3%B6r%C3%A9n_1.jpg?h=a51a5cf9&itok=EcYxUCq0',
-            }}
-          />
+      <Image
+        style={styles.image}
+        source={{
+          uri: 'https://www.pact-zollverein.de/files/styles/1340w__3by2/public/redaktion/_DSC6027Jefta%20van%20Dinther_%C2%A9%20Urban%20J%C3%B6r%C3%A9n_1.jpg?h=a51a5cf9&itok=EcYxUCq0',
+        }}
+      />
+      <View
+        style={{
+          paddingLeft: 14,
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}>
+        <View style={{flex: 1, flexDirection: 'column'}}>
+          <Text style={styles.title}>
+            27TH VUE SUR LA RELÈVE FESTIVAL -{' '}
+            <Text style={styles.who}>Jefta van Dinther</Text>
+          </Text>
         </View>
-        <View style={{paddingLeft: 14}}>
-          <Text style={styles.date}>Oct 29, 10:00AM - Nov 29, 10:00PM</Text>
-          <Text style={styles.title}>LINK | Open Call</Text>
 
-          <Text style={styles.who}>Jefta von Dinther</Text>
+        <Text style={styles.when}>OCT 16 - NOV 29</Text>
 
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <Text style={styles.location}>Berlin, Germany</Text>
-          </View>
+        <View style={styles.bottomRow}>
+          <Text style={styles.location}>Berlin, Germany</Text>
+          <Text style={styles.date}>Deadline:{'\n'}Nov 29, 10:00PM</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -85,38 +93,52 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#fffff',
-    // paddingHorizontal: 4,
     marginVertical: 10,
-    borderRadius: 2,
   },
   header: {
     fontSize: 32,
     backgroundColor: '#fff',
   },
-  date: {
-    flex: 1,
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#d1410c',
+  image: {
+    width: 90,
+    height: 90,
+    border: 'solid',
+    borderWidth: 1,
+    borderColor: 'silver',
   },
   title: {
     fontSize: 16,
-    flex: 2,
+    flex: 1,
+    flexWrap: 'wrap',
     color: '#39364f',
-    fontWeight: 'bold',
+    fontWeight: '400',
   },
   who: {
     fontSize: 13,
     color: '#39364f',
-    fontWeight: 'bold',
+    fontWeight: '400',
+  },
+  when: {
+    fontSize: 12,
+    color: '#39364f',
+    fontWeight: '400',
+  },
+  bottomRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   },
   location: {
     fontSize: 12,
     color: 'light-grey',
-    justifyContent: 'flex-end',
+    fontWeight: '400',
+    // textAlignVertical: 'bottom',
   },
-  tinyLogo: {
-    width: 90,
-    height: 90,
+  date: {
+    fontSize: 12,
+    color: '#d1410c',
+    fontWeight: '300',
+    // textAlignVertical: 'bottom',
   },
 });

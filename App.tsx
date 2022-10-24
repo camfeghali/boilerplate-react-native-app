@@ -32,7 +32,24 @@ export default function App() {
             component={HomeStackScreen}
             options={{
               headerTitleAlign: 'left',
+              // headerShown: false,
+              // headerTransparent: true,
               headerTitle: props => <Text style={styles.header}>Camille</Text>,
+              headerRight: () => <Button title="Update count" />,
+
+              headerStyle: {
+                // position: 'absolute',
+                // backgroundColor: 'transparent',
+                // zIndex: 100,
+                // top: 0,
+                // left: 0,
+                // right: 0,
+                // elevation: 0,
+                // shadowOpacity: 0,
+                // borderBottomWidth:
+                shadowOpacity: 0,
+                borderBottomWidth: 0,
+              },
             }}
           />
           <Tab.Screen name="Profile" component={ProfileStackScreen} />
@@ -46,6 +63,17 @@ export default function App() {
 const screenOptions = ({route}) => ({
   tabBarActiveTintColor: 'purple',
   tabBarInactiveTintColor: 'gray',
+  // headerStyle: {
+  //   position: 'absolute',
+  //   backgroundColor: 'transparent',
+  //   zIndex: 100,
+  //   top: 0,
+  //   left: 0,
+  //   right: 0,
+  //   elevation: 0,
+  //   shadowOpacity: 0,
+  //   borderBottomWidth: 0,
+  // },
 
   tabBarIcon: ({focused, color, size}) => {
     let iconName;
@@ -74,11 +102,10 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   header: {
-    fontSize: 22,
+    fontSize: 18,
     backgroundColor: '#fff',
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+
+    textAlignVertical: 'bottom',
   },
   title: {
     fontSize: 24,
